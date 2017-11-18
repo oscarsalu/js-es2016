@@ -3,6 +3,7 @@ import { multiply } from './export';
 
 const prog = [1, 2, 3];
 let digits = new Array();
+let numb1 = new Array();
 
 class Buildname {
 
@@ -54,8 +55,14 @@ let play = (name, amount) => {
     let result = new Buildnameandamount(name, amount);
 
     //call to the set and get
-    result.pnumber = 071234567;
+    console.log(numb1);
+    // result.pnumber = 071234567;
     // convert an object to array
+
+    //using rest
+    let [a, ...theRest] = numb1;
+    result.pnumber = a;
+
     var arr = Array.from(Object.keys(result), k => result[k]);
 
     // distructing
@@ -97,15 +104,20 @@ let play = (name, amount) => {
             let winno = multiply(generator1.value, 1);
 
             const usersdigits = new Set(digits);
+
+            document.getElementById("result").innerHTML = winno;
+
             console.log(usersdigits);
             console.log(winno);
-            // console.log(winno.value);
+            console.log(usersdigits.has(winno));
 
 
-            if (usersdigits.has(winno.value)) {
-                alert(`Congratulations ${x} your lucky number is ${winno.value} you have won ${amount * 2}, ${CustomDate.today}`);
+
+
+            if (usersdigits.has(winno)) {
+                alert(`Congratulations ${x} your lucky number is ${winno} you have won ${amount * 2}, we will call you through this number${a}`);
             } else {
-                alert(`Sorry ${x} todays lucky number is ${winno.value} you have lost ${amount}`);
+                alert(`Sorry ${x} todays lucky number is ${winno} you have lost ${amount}`);
             }
 
         })
@@ -116,20 +128,24 @@ let play = (name, amount) => {
 
 }
 var getelements = () => {
-        // var first = 1;
-        // var second = 2;
-        // var third = 3;
-        // var name = 'oscar';
-        // var amount = 100;
-        var first = +document.getElementById('first').value;
-        var second = +document.getElementById("second").value;
-        var third = +document.getElementById("third").value;
-        var name = document.getElementById("name").value;
-        var amount = document.getElementById("amount").value;
+    // var first = 1;
+    // var second = 2;
+    // var third = 3;
+    // var name = 'oscar';
+    // var amount = 100;
+    // var ber = '01223456';
+    var first = +document.getElementById('first').value;
+    var second = +document.getElementById("second").value;
+    var third = +document.getElementById("third").value;
+    var name = document.getElementById("name").value;
+    var amount = document.getElementById("amount").value;
+    var ber = document.getElementById("numbe").value;
 
-        digits.push(first, second, third);
+    digits.push(first, second, third);
+    numb1.push(ber);
 
-        let start = new Buildnameandamount(name, amount);
-        start.callplay();
-    }
-    // getelements();
+
+    let start = new Buildnameandamount(name, amount);
+    start.callplay();
+}
+getelements();

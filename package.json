@@ -1,0 +1,27 @@
+{
+    "name": "js-es2016",
+    "version": "1.0.0",
+    "description": "",
+    "main": "webpack.config.js",
+    "dependencies": {
+        "webpack-dev-server": "^2.9.4"
+    },
+    "devDependencies": {
+        "webpack": "^3.8.1"
+    },
+    "scripts": {
+        "build": "webpack webpack.config.js",
+        "watch": "webpack -w",
+        "start": "webpack-dev-server --open"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/oscarsalu/js-es2016.git"
+    },
+    "author": "oscar",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/oscarsalu/js-es2016/issues"
+    },
+    "homepage": "https://github.com/oscarsalu/js-es2016#readme"
+}
