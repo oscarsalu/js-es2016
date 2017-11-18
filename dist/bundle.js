@@ -83,6 +83,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const prog = [1, 2, 3];
 let digits = new Array();
+let numb1 = new Array();
 
 class Buildname {
 
@@ -133,6 +134,14 @@ let play = (name, amount) => {
 
     let result = new Buildnameandamount(name, amount);
 
+    //call to the set and get
+    console.log(numb1);
+    // result.pnumber = 071234567;
+    // convert an object to array
+
+    //using rest
+    let [a, ...theRest] = numb1;
+    result.pnumber = a;
 
     var arr = Array.from(Object.keys(result), k => result[k]);
 
@@ -175,15 +184,20 @@ let play = (name, amount) => {
             let winno = Object(__WEBPACK_IMPORTED_MODULE_0__export__["a" /* multiply */])(generator1.value, 1);
 
             const usersdigits = new Set(digits);
+
+            document.getElementById("result").innerHTML = winno;
+
             console.log(usersdigits);
             console.log(winno);
-            // console.log(winno.value);
+            console.log(usersdigits.has(winno));
 
 
-            if (usersdigits.has(winno.value)) {
-                alert(`Congratulations ${x} your lucky number is ${winno.value} you have won ${amount * 2}, ${CustomDate.today}`);
+
+
+            if (usersdigits.has(winno)) {
+                alert(`Congratulations ${x} your lucky number is ${winno} you have won ${amount * 2}, we will call you through this number${a}`);
             } else {
-                alert(`Sorry ${x} todays lucky number is ${winno.value} you have lost ${amount}`);
+                alert(`Sorry ${x} todays lucky number is ${winno} you have lost ${amount}`);
             }
 
         })
@@ -194,24 +208,35 @@ let play = (name, amount) => {
 
 }
 var getelements = () => {
+        // var first = 1;
+        // var second = 2;
+        // var third = 3;
+        // var name = 'oscar';
+        // var amount = 100;
+        // var ber = '01223456';
+        var first = +document.getElementById('first').value;
+        var second = +document.getElementById("second").value;
+        var third = +document.getElementById("third").value;
+        var name = document.getElementById("name").value;
+        var amount = document.getElementById("amount").value;
+        var ber = document.getElementById("numbe").value;
 
-    var first = 1;
-    var second = 2;
-    var third = 3;
-    var name = 'oscar';
-    var amount = 100;
-    // var first = +document.getElementById('first').value;
-    // var second = +document.getElementById("second").value;
-    // var third = +document.getElementById("third").value;
-    // var name = document.getElementById("name").value;
-    // var amount = document.getElementById("amount").value;
+        digits.push(first, second, third);
+        numb1.push(ber);
 
-    digits.push(first, second, third);
+        console.log(first);
 
-    let start = new Buildnameandamount(name, amount);
-    start.callplay();
-}
-getelements();
+        let start = new Buildnameandamount(name, amount);
+        start.callplay();
+    }
+    (function() {
+        document.getElementById('buttonSearch').addEventListener('click', start, true);
+
+        function start() {
+            getelements()
+        }
+    })();
+//getelements();
 
 /***/ }),
 /* 2 */
@@ -236,8 +261,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
-        contentBase: './dist',
-        hot: true
+        contentBase: './dist'
     }
 };
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))

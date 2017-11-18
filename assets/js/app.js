@@ -128,24 +128,30 @@ let play = (name, amount) => {
 
 }
 var getelements = () => {
-    // var first = 1;
-    // var second = 2;
-    // var third = 3;
-    // var name = 'oscar';
-    // var amount = 100;
-    // var ber = '01223456';
-    var first = +document.getElementById('first').value;
-    var second = +document.getElementById("second").value;
-    var third = +document.getElementById("third").value;
-    var name = document.getElementById("name").value;
-    var amount = document.getElementById("amount").value;
-    var ber = document.getElementById("numbe").value;
+        // var first = 1;
+        // var second = 2;
+        // var third = 3;
+        // var name = 'oscar';
+        // var amount = 100;
+        // var ber = '01223456';
+        var first = +document.getElementById('first').value;
+        var second = +document.getElementById("second").value;
+        var third = +document.getElementById("third").value;
+        var name = document.getElementById("name").value;
+        var amount = document.getElementById("amount").value;
+        var ber = document.getElementById("numbe").value;
 
-    digits.push(first, second, third);
-    numb1.push(ber);
+        digits.push(first, second, third);
+        numb1.push(ber);
 
+        let start = new Buildnameandamount(name, amount);
+        start.callplay();
+    }
+    (function() {
+        document.getElementById('buttonSearch').addEventListener('click', start, true);
 
-    let start = new Buildnameandamount(name, amount);
-    start.callplay();
-}
-getelements();
+        function start() {
+            getelements()
+        }
+    })();
+//getelements();
